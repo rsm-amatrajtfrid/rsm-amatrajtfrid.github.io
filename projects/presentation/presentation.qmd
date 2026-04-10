@@ -1,0 +1,33 @@
+---
+title: "Who Will Win the World Cup?"
+format:
+  revealjs:
+    embed-resources: true
+---
+
+# Who Will Win the World Cup?
+
+My prediction: **Argentina**
+
+---
+
+## Why Argentina?
+
+- Strong recent tournament experience
+- High-level attacking depth
+- Tactical discipline
+- Proven ability under pressure
+
+---
+
+## Final Prediction
+
+**Winner:** Argentina
+
+### Why?
+They combine:
+- experience
+- chemistry
+- elite talent
+
+Thanks!

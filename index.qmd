@@ -1,0 +1,13 @@
+---
+title: "Alex Matrajt Frid"
+image: "files/profile_pic.jpg"
+about:
+  template: jolla
+  links:
+    - icon: envelope
+      href: mailto:amatrajtfrid@ucsd.edu
+    - icon: linkedin
+      href: https://www.linkedin.com/in/alexmatrajt/
+---
+
+Welcome to my website!

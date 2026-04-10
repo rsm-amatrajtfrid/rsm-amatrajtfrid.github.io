@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Alex Matrajt Frid MGTA 495"
+  navbar:
+    left:
+      - href: index.qmd
+        text: About
+      - href: skills.qmd
+        text: Skills
+      - href: resume.qmd
+        text: Resume
+      - href: projects.qmd
+        text: Projects
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

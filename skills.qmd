@@ -1,0 +1,41 @@
+# Skills & Tools
+
+## Programming & Data Engineering
+- **Python** (Pandas, NumPy, Matplotlib, PyTorch, Scikit-learn)
+- **R** (Tidyverse, ggplot2)
+- **SQL** (Snowflake, PostgreSQL)
+- **C++**
+- ETL Pipelines & Data Integration
+- API Development & Integration
+
+## Machine Learning & AI
+- Regression, Classification, Clustering
+- Decision Trees, Random Forest, XGBoost
+- Neural Networks & Deep Learning (CNNs, PyTorch)
+- Hyperparameter Tuning
+- Natural Language Processing (NLP)
+- Embeddings & LLM Applications
+- Prompt Engineering & LLM Fine-Tuning
+
+## Analytics & Data Visualization
+- Exploratory Data Analysis (EDA)
+- Time Series & Network Analysis
+- Data Visualization (Matplotlib, ggplot2, Tableau)
+- Dashboarding & Insight Communication
+
+## Tools & Technologies
+- Git & GitHub
+- VS Code, Cursor
+- Docker
+- Snowflake
+- PostgreSQL
+- Excel & PowerPoint
+
+## Operating Systems
+- macOS
+- Linux
+
+## Languages
+- English (Fluent)
+- Spanish (Native)
+- Mandarin Chinese (Advanced)
