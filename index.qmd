@@ -10,4 +10,14 @@ about:
       href: https://www.linkedin.com/in/alexmatrajt/
 ---
 
-Welcome to my website!
+::: {.page-intro}
+## About
+
+::: {.lead-text}
+I am a Master of Science in Business Analytics student at UC San Diego. I completed my B.S. in Data Science at the University of Michigan.
+:::
+:::
+
+::: {.section-panel}
+This site includes my projects, technical skills, blog posts, and resume.
+:::

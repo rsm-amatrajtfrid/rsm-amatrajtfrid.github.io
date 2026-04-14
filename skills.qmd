@@ -1,41 +1,57 @@
-# Skills & Tools
+---
+title: "Skills"
+---
 
-## Programming & Data Engineering
-- **Python** (Pandas, NumPy, Matplotlib, PyTorch, Scikit-learn)
-- **R** (Tidyverse, ggplot2)
-- **SQL** (Snowflake, PostgreSQL)
-- **C++**
-- ETL Pipelines & Data Integration
-- API Development & Integration
+::: {.page-intro}
+::: {.lead-text}
+A concise overview of the tools and methods I use most often in analytics and machine learning work.
+:::
+:::
 
-## Machine Learning & AI
-- Regression, Classification, Clustering
-- Decision Trees, Random Forest, XGBoost
-- Neural Networks & Deep Learning (CNNs, PyTorch)
-- Hyperparameter Tuning
-- Natural Language Processing (NLP)
-- Embeddings & LLM Applications
-- Prompt Engineering & LLM Fine-Tuning
+::: {.two-column-grid}
+::: {.section-panel}
+### Programming
 
-## Analytics & Data Visualization
-- Exploratory Data Analysis (EDA)
-- Time Series & Network Analysis
-- Data Visualization (Matplotlib, ggplot2, Tableau)
-- Dashboarding & Insight Communication
+<ul class="compact-list">
+<li><strong>Python</strong>: Pandas, NumPy, Matplotlib, PyTorch, Scikit-learn</li>
+<li><strong>R</strong>: Tidyverse, ggplot2</li>
+<li><strong>SQL</strong>: Snowflake, PostgreSQL</li>
+<li><strong>C++</strong></li>
+</ul>
+:::
 
-## Tools & Technologies
-- Git & GitHub
-- VS Code, Cursor
-- Docker
-- Snowflake
-- PostgreSQL
-- Excel & PowerPoint
+::: {.section-panel}
+### Machine Learning
 
-## Operating Systems
-- macOS
-- Linux
+<ul class="compact-list">
+<li>Regression, classification, clustering</li>
+<li>Decision trees, random forest, XGBoost</li>
+<li>Neural networks and deep learning</li>
+<li>NLP, embeddings, and LLM applications</li>
+</ul>
+:::
 
-## Languages
-- English (Fluent)
-- Spanish (Native)
-- Mandarin Chinese (Advanced)
+::: {.section-panel}
+### Analytics & Visualization
+
+<ul class="compact-list">
+<li>Exploratory data analysis</li>
+<li>Time series and network analysis</li>
+<li>Data visualization</li>
+<li>Dashboarding and insight communication</li>
+</ul>
+:::
+
+::: {.section-panel}
+### Tools
+
+<ul class="compact-list">
+<li>Git and GitHub</li>
+<li>Docker</li>
+<li>VS Code and Cursor</li>
+<li>Excel and PowerPoint</li>
+<li>macOS and Linux</li>
+<li>English, Spanish, Mandarin Chinese</li>
+</ul>
+:::
+:::

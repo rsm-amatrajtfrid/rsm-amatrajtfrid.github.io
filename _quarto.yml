@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Alex Matrajt Frid MGTA 495"
+  title: "Alex Matrajt Frid"
   navbar:
     left:
       - href: index.qmd
@@ -21,4 +21,4 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
+    toc: false
