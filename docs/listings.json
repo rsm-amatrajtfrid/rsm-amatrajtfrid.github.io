@@ -6,5 +6,11 @@
       "/projects/presentation/presentation.html",
       "/projects/project2/index.html"
     ]
+  },
+  {
+    "listing": "/blogs.html",
+    "items": [
+      "/blogs/blog1/blog1.html"
+    ]
   }
 ]
