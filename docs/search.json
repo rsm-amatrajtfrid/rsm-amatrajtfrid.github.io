@@ -123,14 +123,14 @@
     "href": "projects/project1/index.html",
     "title": "Analysis of Cars",
     "section": "",
-    "text": "Let’s investigate the relationship between fuel efficiency (mpg) and engine displacement (disp) from the mtcars dataset. Those variables have a correlation of r cor(mtcars$mpg, mtcars$disp) |&gt; format(digits=2).\n\n\nHere is a plot:"
+    "text": "Let’s investigate the relationship between fuel efficiency (mpg) and engine displacement (disp) from the mtcars dataset. Those variables have a correlation of r cor(mtcars$mpg, mtcars$disp) |&gt; format(digits=2).\n\n\nHere is a plot:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load dataset (equivalent to R's mtcars)\nmtcars = sns.load_dataset(\"mpg\").dropna()\n\n# Create scatter plot\nplt.scatter(mtcars[\"mpg\"], mtcars[\"displacement\"])\n\n# Labels (optional but recommended)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\n\nplt.show()"
   },
   {
     "objectID": "projects/project1/index.html#sub-header",
     "href": "projects/project1/index.html#sub-header",
     "title": "Analysis of Cars",
     "section": "",
-    "text": "Here is a plot:"
+    "text": "Here is a plot:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load dataset (equivalent to R's mtcars)\nmtcars = sns.load_dataset(\"mpg\").dropna()\n\n# Create scatter plot\nplt.scatter(mtcars[\"mpg\"], mtcars[\"displacement\"])\n\n# Labels (optional but recommended)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\n\nplt.show()"
   },
   {
     "objectID": "projects.html",

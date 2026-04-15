@@ -12,12 +12,20 @@ Let's investigate the relationship between fuel efficiency (`mpg`) and engine di
 
 Here is a plot:
 
-<!-- ```{r}
-#| message: false
+```{python}
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 
-library(tidyverse)
-data(mtcars)
-mtcars |>
-  ggplot(aes(mpg, disp)) +
-  geom_point(color="dodgerblue4", size=2)
-``` -->
+# Load dataset (equivalent to R's mtcars)
+mtcars = sns.load_dataset("mpg").dropna()
+
+# Create scatter plot
+plt.scatter(mtcars["mpg"], mtcars["displacement"])
+
+# Labels (optional but recommended)
+plt.xlabel("mpg")
+plt.ylabel("disp")
+
+plt.show()
+```

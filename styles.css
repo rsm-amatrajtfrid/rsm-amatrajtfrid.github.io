@@ -52,6 +52,17 @@ a,
   max-width: var(--content-width);
 }
 
+#quarto-content.quarto-container,
+.page-columns.page-rows-contents.page-layout-article {
+  max-width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-columns.page-rows-contents.page-layout-article {
+  justify-content: center;
+}
+
 .navbar {
   background: rgba(255, 255, 255, 0.94) !important;
   backdrop-filter: blur(10px);
