@@ -17,8 +17,7 @@
 }
 
 body {
-  background:
-    linear-gradient(180deg, #fcfaf6 0%, var(--bg) 55%, var(--bg-soft) 100%);
+  background: var(--bg);
   color: var(--text);
   font-family: 'Manrope', 'Helvetica Neue', sans-serif;
   line-height: 1.7;
