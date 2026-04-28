@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-974283bc3aaf174b429e5d65f5c1fa72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e8bcddb3e86c0b073c6d50e5c05b014e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="8aa93f41" class="cell" data-execution_count="1">
+<div id="cfa88a30" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="read-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="read-the-data">Read the data</h3>
 <p>The dataset is a fixed-width ASCII file, so the main challenge is telling Python where each variable starts and ends.</p>
-<div id="164a8815" class="cell" data-execution_count="2">
+<div id="eccea4b2" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixed-width column locations from the codebook</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>colspecs <span class="op">=</span> [</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0</span>,<span class="dv">3</span>),(<span class="dv">4</span>,<span class="dv">5</span>),(<span class="dv">6</span>,<span class="dv">7</span>),(<span class="dv">8</span>,<span class="dv">9</span>),(<span class="dv">10</span>,<span class="dv">11</span>),(<span class="dv">12</span>,<span class="dv">13</span>),(<span class="dv">14</span>,<span class="dv">15</span>),(<span class="dv">16</span>,<span class="dv">17</span>),(<span class="dv">18</span>,<span class="dv">19</span>),(<span class="dv">20</span>,<span class="dv">21</span>),</span>
@@ -422,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="construct-the-variables-used-in-the-paper" class="level3">
 <h3 class="anchored" data-anchor-id="construct-the-variables-used-in-the-paper">Construct the variables used in the paper</h3>
-<div id="21dc504c" class="cell" data-execution_count="3">
+<div id="b363fa56" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full-time-equivalent employment</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"emptot"</span>] <span class="op">=</span> df[<span class="st">"empft"</span>] <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> df[<span class="st">"emppt"</span>] <span class="op">+</span> df[<span class="st">"nmgrs"</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"emptot2"</span>] <span class="op">=</span> df[<span class="st">"empft2"</span>] <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> df[<span class="st">"emppt2"</span>] <span class="op">+</span> df[<span class="st">"nmgrs2"</span>]</span>
@@ -469,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="replicate-the-key-difference-in-differences-result" class="level3">
 <h3 class="anchored" data-anchor-id="replicate-the-key-difference-in-differences-result">Replicate the key difference-in-differences result</h3>
 <p>The paper’s Table 3 reports mean employment before and after the policy. The most important row is the balanced sample: stores with valid employment data in both waves, with permanently closed stores counted as zero in wave 2 and temporarily closed stores treated as missing. The paper reports a difference-in-differences estimate of about <strong>2.76 full-time-equivalent workers</strong>.</p>
-<div id="dd55414e" class="cell" data-execution_count="4">
+<div id="df489edb" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Balanced sample: valid employment in both waves after setting permanent closures to zero</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>balanced <span class="op">=</span> df[df[<span class="st">"emptot"</span>].notna() <span class="op">&amp;</span> df[<span class="st">"emptot2_table"</span>].notna()].copy()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -520,7 +520,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="70855516" class="cell" data-execution_count="5">
+<div id="6c2d7b44" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>did <span class="op">=</span> summary.loc[<span class="st">"New Jersey"</span>, <span class="st">"Change"</span>] <span class="op">-</span> summary.loc[<span class="st">"Pennsylvania"</span>, <span class="st">"Change"</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>did</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -530,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="a-simple-t-test-version-of-the-difference-in-differences" class="level3">
 <h3 class="anchored" data-anchor-id="a-simple-t-test-version-of-the-difference-in-differences">A simple t-test version of the difference in differences</h3>
-<div id="4f717edb" class="cell" data-execution_count="6">
+<div id="6201e019" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nj_change <span class="op">=</span> balanced.loc[balanced[<span class="st">"nj"</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">"demp"</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pa_change <span class="op">=</span> balanced.loc[balanced[<span class="st">"nj"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"demp"</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -553,9 +553,9 @@ p-value: 0.043</code></pre>
 </section>
 <section id="regression-adjusted-replication-of-table-4" class="level3">
 <h3 class="anchored" data-anchor-id="regression-adjusted-replication-of-table-4">Regression-adjusted replication of Table 4</h3>
-<p>Card and Krueger also estimate regression models for the change in employment. Their Table 4, column (ii), adds controls for restaurant chain and company ownership and reports a coefficient of about <strong>2.30</strong> on the New Jersey indicator.</p>
-<p>To match their sample, I follow the same rule used in the original SAS code: keep stores with non-missing employment change, and for non-closed stores require valid wage data in both waves.</p>
-<div id="e9cd0ef7" class="cell" data-execution_count="7">
+<p>Card and Krueger also estimate regression models in which the dependent variable is the change in employment between the two survey waves. In Table 4, column (ii), they extend the basic specification by adding controls for restaurant chain affiliation and company-owned versus franchise-owned status. With these additional controls included, they report a coefficient of approximately 2.30 on the New Jersey indicator. This estimate implies that, relative to the comparison group, fast-food restaurants in New Jersey experienced an increase in employment change of about 2.3 full-time-equivalent workers.</p>
+<p>To replicate their sample as closely as possible, I apply the same data-screening rule used in the original SAS code. Specifically, I retain only stores for which the change in employment is observed. Among stores that remained open, I further require valid wage information in both survey waves. This restriction ensures that the estimation sample is aligned with the one used in their analysis and that the regression is based on observations with complete information on the key outcome and wage variables.</p>
+<div id="5a49fc66" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>reg_sample <span class="op">=</span> df[</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"demp"</span>].notna() <span class="op">&amp;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    (</span>
@@ -569,7 +569,7 @@ p-value: 0.043</code></pre>
 <pre><code>357</code></pre>
 </div>
 </div>
-<div id="816b2182" class="cell" data-execution_count="8">
+<div id="c7bb7c2a" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model_nj <span class="op">=</span> smf.ols(<span class="st">"demp ~ nj + bk + kfc + roys + co_owned"</span>, data<span class="op">=</span>reg_sample).fit()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>model_gap <span class="op">=</span> smf.ols(<span class="st">"demp ~ gap + bk + kfc + roys + co_owned"</span>, data<span class="op">=</span>reg_sample).fit()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -598,7 +598,7 @@ co_owned       0.4089      1.092      0.374      0.708      -1.739       2.557
 ==============================================================================</code></pre>
 </div>
 </div>
-<div id="ee49d90f" class="cell" data-execution_count="9">
+<div id="98233a0d" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Model"</span>: [<span class="st">"NJ dummy + controls"</span>, <span class="st">"Gap + controls"</span>],</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Coefficient"</span>: [model_nj.params[<span class="st">"nj"</span>], model_gap.params[<span class="st">"gap"</span>]],</span>
@@ -648,7 +648,7 @@ co_owned       0.4089      1.092      0.374      0.708      -1.739       2.557
 <section id="something-additional" class="level2">
 <h2 class="anchored" data-anchor-id="something-additional">Something Additional</h2>
 <p>For my additional contribution, I turn the main employment comparison into a figure. The original paper reports the key before-and-after means in a table. A graph makes the difference-in-differences design more intuitive: employment falls in Pennsylvania but rises slightly in New Jersey, so the gap in trends is positive.</p>
-<div id="29d07eff" class="cell" data-execution_count="10">
+<div id="1a8e81b7" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plot_df <span class="op">=</span> (</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    balanced</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    .assign(state_name<span class="op">=</span>np.where(balanced[<span class="st">"nj"</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">"New Jersey"</span>, <span class="st">"Pennsylvania"</span>))</span>
@@ -709,7 +709,7 @@ co_owned       0.4089      1.092      0.374      0.708      -1.739       2.557
 </div>
 </div>
 </div>
-<div id="94b0dbee" class="cell" data-execution_count="11">
+<div id="7b799c03" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> state_name, sub <span class="kw">in</span> plot_df.groupby(<span class="st">"state_name"</span>):</span>
