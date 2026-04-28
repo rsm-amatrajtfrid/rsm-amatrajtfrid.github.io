@@ -151,9 +151,9 @@ The replicated estimate is about **2.75 to 2.76 FTE employees**, which is essent
 
 ### Regression-adjusted replication of Table 4
 
-Card and Krueger also estimate regression models for the change in employment. Their Table 4, column (ii), adds controls for restaurant chain and company ownership and reports a coefficient of about **2.30** on the New Jersey indicator.
+Card and Krueger also estimate regression models in which the dependent variable is the change in employment between the two survey waves. In Table 4, column (ii), they extend the basic specification by adding controls for restaurant chain affiliation and company-owned versus franchise-owned status. With these additional controls included, they report a coefficient of approximately 2.30 on the New Jersey indicator. This estimate implies that, relative to the comparison group, fast-food restaurants in New Jersey experienced an increase in employment change of about 2.3 full-time-equivalent workers.
 
-To match their sample, I follow the same rule used in the original SAS code: keep stores with non-missing employment change, and for non-closed stores require valid wage data in both waves.
+To replicate their sample as closely as possible, I apply the same data-screening rule used in the original SAS code. Specifically, I retain only stores for which the change in employment is observed. Among stores that remained open, I further require valid wage information in both survey waves. This restriction ensures that the estimation sample is aligned with the one used in their analysis and that the regression is based on observations with complete information on the key outcome and wage variables.
 
 ```{python}
 reg_sample = df[

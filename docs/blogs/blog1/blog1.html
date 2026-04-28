@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-974283bc3aaf174b429e5d65f5c1fa72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e8bcddb3e86c0b073c6d50e5c05b014e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -268,7 +268,7 @@ window.Quarto = {
 \theta = 0.22 - 0.18 = 0.04
 \]</span></p>
 <p>Below I simulate 1,000 visitors for each CTA.</p>
-<div id="317f9547" class="cell" data-execution_count="2">
+<div id="a2327eb0" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
@@ -291,7 +291,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="the-law-of-large-numbers">The Law of Large Numbers</h2>
 <p>The <strong>Law of Large Numbers</strong> tells us that as the sample size grows, the sample mean converges to the population mean. In this setting, that means the difference in sample means, <span class="math inline">\(\hat\theta\)</span>, should get closer to the true difference <span class="math inline">\(\theta\)</span> as we collect more observations.</p>
 <p>To visualize this, I compute the element-wise differences between the CTA A and CTA B draws, then plot the cumulative average of those differences as the number of observations increases.</p>
-<div id="3f51a303" class="cell" data-execution_count="3">
+<div id="d5933edf" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>diffs <span class="op">=</span> A <span class="op">-</span> B</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cum_avg <span class="op">=</span> np.cumsum(diffs) <span class="op">/</span> np.arange(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -319,7 +319,7 @@ window.Quarto = {
 <p>A point estimate tells us what happened in our sample, but it does not tell us how precise that estimate is. To quantify uncertainty, we need a <strong>standard error</strong> and, from that, a confidence interval.</p>
 <p>One flexible way to estimate the standard error is the <strong>bootstrap</strong>. The bootstrap works by repeatedly resampling from the observed data with replacement, recomputing the statistic each time, and then looking at how much those resampled statistics vary.</p>
 <p>Here, I repeatedly resample the A group and the B group, each with replacement, compute the difference in means for each bootstrap sample, and then use the standard deviation of those bootstrap estimates as the bootstrap standard error.</p>
-<div id="936a6615" class="cell" data-execution_count="4">
+<div id="246acbd9" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">12345</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>n_boot <span class="op">=</span> <span class="dv">1000</span></span>
@@ -340,7 +340,7 @@ window.Quarto = {
 <p><span class="math display">\[
 SE(\hat\theta) = \sqrt{\frac{\hat\pi_A(1 - \hat\pi_A)}{n_A} + \frac{\hat\pi_B(1 - \hat\pi_B)}{n_B}}
 \]</span></p>
-<div id="57666417" class="cell" data-execution_count="5">
+<div id="39d212ee" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pi_A_hat <span class="op">=</span> A.mean()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pi_B_hat <span class="op">=</span> B.mean()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -387,7 +387,7 @@ SE(\hat\theta) = \sqrt{\frac{\hat\pi_A(1 - \hat\pi_A)}{n_A} + \frac{\hat\pi_B(1 
 <p><span class="math display">\[
 \hat\theta \pm 1.96 \times SE_{boot}
 \]</span></p>
-<div id="719a0508" class="cell" data-execution_count="6">
+<div id="a78abb65" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="op">=</span> theta_hat <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> boot_se</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="op">=</span> theta_hat <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> boot_se</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -431,7 +431,7 @@ SE(\hat\theta) = \sqrt{\frac{\hat\pi_A(1 - \hat\pi_A)}{n_A} + \frac{\hat\pi_B(1 
 <h2 class="anchored" data-anchor-id="the-central-limit-theorem">The Central Limit Theorem</h2>
 <p>The <strong>Central Limit Theorem (CLT)</strong> tells us that, for sufficiently large samples, the sampling distribution of the sample mean becomes approximately Normal, even when the underlying data are not Normal. Since our estimator is a difference in sample means, the CLT suggests that the sampling distribution of <span class="math inline">\(\hat\theta\)</span> should also become approximately bell-shaped as sample size increases.</p>
 <p>To show this, I repeatedly simulate the A/B test at four sample sizes: <span class="math inline">\(n \in {25, 50, 100, 500}\)</span>. For each sample size, I generate 1,000 values of <span class="math inline">\(\hat\theta\)</span> and plot their histograms.</p>
-<div id="7791341a" class="cell" data-execution_count="7">
+<div id="5a0ca6ea" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_theta(n, pi_A, pi_B, reps<span class="op">=</span><span class="dv">1000</span>, seed<span class="op">=</span><span class="dv">123</span>):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> np.empty(reps)</span>
@@ -444,7 +444,7 @@ SE(\hat\theta) = \sqrt{\frac{\hat\pi_A(1 - \hat\pi_A)}{n_A} + \frac{\hat\pi_B(1 
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="op">=</span> [<span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>]</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>sim_results <span class="op">=</span> {n_i: simulate_theta(n_i, pi_A, pi_B, reps<span class="op">=</span><span class="dv">1000</span>, seed<span class="op">=</span><span class="dv">100</span> <span class="op">+</span> n_i) <span class="cf">for</span> n_i <span class="kw">in</span> sample_sizes}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="adca8472" class="cell" data-execution_count="8">
+<div id="aa84cf3c" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -478,7 +478,7 @@ z = \frac{\hat\theta - 0}{SE(\hat\theta)}
 <li>Once we know the null distribution, we can compute a p-value.</li>
 </ol>
 <p>Although people sometimes casually call this a “t-test,” this setup is more naturally viewed as a <strong>large-sample z-test</strong>. The classical t-distribution arises from Normal data with an estimated variance. Here the outcomes are Bernoulli, not Normal, and the justification comes from the Central Limit Theorem. In large samples, though, the standard Normal and t distributions are very similar, so the practical conclusions are usually the same.</p>
-<div id="a9e9c1c4" class="cell" data-execution_count="9">
+<div id="26830795" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>z_stat <span class="op">=</span> theta_hat <span class="op">/</span> analytical_se</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> norm.cdf(<span class="bu">abs</span>(z_stat)))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -537,7 +537,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 <li>Therefore, <span class="math inline">\(\beta_1 = \pi_A - \pi_B = \theta\)</span>.</li>
 </ol>
 <p>So the regression coefficient on the treatment indicator is exactly the treatment effect.</p>
-<div id="1b819882" class="cell" data-execution_count="10">
+<div id="75a7596e" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Y"</span>: np.concatenate([A, B]),</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"D"</span>: np.concatenate([np.ones(n), np.zeros(n)])</span>
@@ -606,7 +606,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 \pi_A = \pi_B = 0.20
 \]</span></p>
 <p>In each simulated experiment, I generate 1,000 observations per group. After every 100 observations, I compute the z-statistic and p-value. If any of the 10 peeks is significant at the 0.05 level, I count that experiment as a false positive. Then I repeat the whole process 10,000 times.</p>
-<div id="0aef68c3" class="cell" data-execution_count="11">
+<div id="c927d7b0" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_peeking_experiment(n_total<span class="op">=</span><span class="dv">1000</span>, step<span class="op">=</span><span class="dv">100</span>, pi<span class="op">=</span><span class="fl">0.20</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, rng<span class="op">=</span><span class="va">None</span>):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> rng <span class="kw">is</span> <span class="va">None</span>:</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        rng <span class="op">=</span> np.random.default_rng()</span>
@@ -651,7 +651,7 @@ Y_i = \beta_0 + \beta_1 D_i + \varepsilon_i
 <pre><code>np.float64(0.194)</code></pre>
 </div>
 </div>
-<div id="d1a1b9cf" class="cell" data-execution_count="12">
+<div id="dc4d3421" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Scenario"</span>: [<span class="st">"Single test at alpha = 0.05"</span>, <span class="st">"10 peeks at the data"</span>],</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"False positive rate"</span>: [<span class="fl">0.05</span>, empirical_fp_rate]</span>
