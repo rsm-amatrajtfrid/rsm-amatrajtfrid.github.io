@@ -206,14 +206,16 @@ all_vals = np.concatenate(list(sim_results.values()))
 x_min, x_max = all_vals.min(), all_vals.max()
 
 for ax, n_i in zip(axes, sample_sizes):
-    ax.hist(sim_results[n_i], bins=30, edgecolor="white")
-    ax.axvline(theta_true, linestyle="--", linewidth=2)
-    ax.set_title(f"n = {n_i}")
-    ax.set_xlabel(r"$\hat{\theta}$")
+    ax.hist(sim_results[n_i], bins=30, edgecolor="white", alpha=0.7, color='steelblue')
+    ax.axvline(theta_true, linestyle="--", linewidth=2.5, color='red', label=f'True θ = {theta_true:.2f}')
+    ax.set_title(f"Sample size: n = {n_i} per group", fontweight='bold')
+    ax.set_xlabel(r"Estimated difference $\hat{\theta}$")
     ax.set_ylabel("Frequency")
     ax.set_xlim(x_min, x_max)
+    ax.grid(True, alpha=0.3, axis='y')
+    ax.legend(loc='upper right')
 
-fig.suptitle("Sampling Distribution of the Difference in Means", fontsize=14)
+fig.suptitle("Central Limit Theorem: Sampling Distribution Becomes More Normal as Sample Size Grows", fontsize=13, fontweight='bold')
 fig.tight_layout()
 plt.show()
 ```
@@ -247,7 +249,8 @@ Why do this?
 1. By the CLT, $\hat\theta$ is approximately Normally distributed in large samples.
 2. Under the null hypothesis, that Normal distribution is centered at 0.
 3. If we divide by the standard error, we put the statistic on a standard scale, so under $H_0$ the test statistic is approximately distributed as $N(0,1)$.
-4. Once we know the null distribution, we can compute a p-value.
+4. Once we know the null distribution, we can compute a p-value: the probability of observing a value *at least as extreme* as what we got, assuming $H_0$ is true.
+5. A small p-value suggests our data would be unlikely if there were truly no difference, providing evidence against $H_0$.
 
 Although people sometimes casually call this a “t-test,” this setup is more naturally viewed as a **large-sample z-test**. The classical t-distribution arises from Normal data with an estimated variance. Here the outcomes are Bernoulli, not Normal, and the justification comes from the Central Limit Theorem. In large samples, though, the standard Normal and t distributions are very similar, so the practical conclusions are usually the same.
 
@@ -376,6 +379,31 @@ pd.DataFrame({
     "Scenario": ["Single test at alpha = 0.05", "10 peeks at the data"],
     "False positive rate": [0.05, empirical_fp_rate]
 }).round(4)
+```
+
+**Visual comparison of the impact:**
+
+```{python}
+fig, ax = plt.subplots(figsize=(8, 5))
+scenarios = ['Single Test\nat α = 0.05', '10 Peeks\nat the Data']
+rates = [0.05, empirical_fp_rate]
+colors = ['green', 'red']
+
+bars = ax.bar(scenarios, rates, color=colors, alpha=0.7, edgecolor='black', linewidth=2)
+for bar, rate in zip(bars, rates):
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2., height + 0.01, f'{rate:.1%}',
+            ha='center', va='bottom', fontsize=13, fontweight='bold')
+
+ax.set_ylabel('False Positive Rate', fontsize=11)
+ax.set_title('Cost of Repeated Peeking: Inflated Type I Error Rate\n(True effect = 0, based on 10,000 simulations)',
+             fontsize=12, fontweight='bold')
+ax.set_ylim(0, max(rates) * 1.4)
+ax.axhline(y=0.05, color='darkgreen', linestyle='--', linewidth=2, alpha=0.6, label='Target α = 0.05')
+ax.grid(True, alpha=0.3, axis='y')
+ax.legend(fontsize=10)
+plt.tight_layout()
+plt.show()
 ```
 
 The empirical false positive rate under repeated peeking is much larger than 0.05. That means that even when there is truly no difference between the CTAs, repeated interim testing makes it far too easy to incorrectly declare a winner.
