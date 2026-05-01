@@ -158,21 +158,21 @@
     "href": "projects/project1/index.html",
     "title": "Analysis of Cars",
     "section": "",
-    "text": "Let’s investigate the relationship between fuel efficiency (mpg) and engine displacement (disp) from the mtcars dataset. Those variables have a correlation of r cor(mtcars$mpg, mtcars$disp) |&gt; format(digits=2).\n\n\nHere is a plot:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load dataset (equivalent to R's mtcars)\nmtcars = sns.load_dataset(\"mpg\").dropna()\n\n# Create scatter plot\nplt.scatter(mtcars[\"mpg\"], mtcars[\"displacement\"])\n\n# Labels (optional but recommended)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\n\nplt.show()"
+    "text": "This analysis explores the relationship between fuel efficiency (mpg) and engine displacement (disp) using the mtcars dataset. We examine whether larger engine sizes are associated with lower fuel efficiency by computing their correlation and visualizing the relationship.\nThe correlation between mpg and disp suggests a negative relationship, meaning that cars with larger engines tend to have lower fuel efficiency.\n\n\nHere is a plot:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load dataset (equivalent to R's mtcars)\nmtcars = sns.load_dataset(\"mpg\").dropna()\n\nplt.figure()\n\nsns.scatterplot(data=mtcars, x=\"mpg\", y=\"displacement\")\n\nplt.title(\"Fuel Efficiency vs Engine Displacement\")\nplt.xlabel(\"Miles per Gallon (mpg)\")\nplt.ylabel(\"Engine Displacement\")\n\nplt.show()\n\n\n\n\n\n\n\n\nThe scatter plot shows a clear negative relationship between engine displacement and fuel efficiency. As displacement increases, miles per gallon tend to decrease, indicating that larger engines are generally less fuel efficient."
   },
   {
     "objectID": "projects/project1/index.html#sub-header",
     "href": "projects/project1/index.html#sub-header",
     "title": "Analysis of Cars",
     "section": "",
-    "text": "Here is a plot:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load dataset (equivalent to R's mtcars)\nmtcars = sns.load_dataset(\"mpg\").dropna()\n\n# Create scatter plot\nplt.scatter(mtcars[\"mpg\"], mtcars[\"displacement\"])\n\n# Labels (optional but recommended)\nplt.xlabel(\"mpg\")\nplt.ylabel(\"disp\")\n\nplt.show()"
+    "text": "Here is a plot:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load dataset (equivalent to R's mtcars)\nmtcars = sns.load_dataset(\"mpg\").dropna()\n\nplt.figure()\n\nsns.scatterplot(data=mtcars, x=\"mpg\", y=\"displacement\")\n\nplt.title(\"Fuel Efficiency vs Engine Displacement\")\nplt.xlabel(\"Miles per Gallon (mpg)\")\nplt.ylabel(\"Engine Displacement\")\n\nplt.show()\n\n\n\n\n\n\n\n\nThe scatter plot shows a clear negative relationship between engine displacement and fuel efficiency. As displacement increases, miles per gallon tend to decrease, indicating that larger engines are generally less fuel efficient."
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Analysis of Cars\n\n\n\n\n\n\nYour Name\n\n\nApr 28, 2026\n\n\n\n\n\n\n\n\n\n\n\nWho Will Win the World Cup?\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis of Cars\n\n\n\n\n\n\nYour Name\n\n\nApr 30, 2026\n\n\n\n\n\n\n\n\n\n\n\nWho Will Win the World Cup?\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blogs.html",

@@ -6,7 +6,9 @@ date: today
 
 # Header
 
-Let's investigate the relationship between fuel efficiency (`mpg`) and engine displacement (`disp`) from the `mtcars` dataset. Those variables have a correlation of `r cor(mtcars$mpg, mtcars$disp) |> format(digits=2)`.
+This analysis explores the relationship between fuel efficiency (`mpg`) and engine displacement (`disp`) using the `mtcars` dataset. We examine whether larger engine sizes are associated with lower fuel efficiency by computing their correlation and visualizing the relationship.
+
+The correlation between `mpg` and `disp` suggests a negative relationship, meaning that cars with larger engines tend to have lower fuel efficiency.
 
 ## Sub-Header
 
@@ -20,12 +22,15 @@ import pandas as pd
 # Load dataset (equivalent to R's mtcars)
 mtcars = sns.load_dataset("mpg").dropna()
 
-# Create scatter plot
-plt.scatter(mtcars["mpg"], mtcars["displacement"])
+plt.figure()
 
-# Labels (optional but recommended)
-plt.xlabel("mpg")
-plt.ylabel("disp")
+sns.scatterplot(data=mtcars, x="mpg", y="displacement")
+
+plt.title("Fuel Efficiency vs Engine Displacement")
+plt.xlabel("Miles per Gallon (mpg)")
+plt.ylabel("Engine Displacement")
 
 plt.show()
 ```
+
+The scatter plot shows a clear negative relationship between engine displacement and fuel efficiency. As displacement increases, miles per gallon tend to decrease, indicating that larger engines are generally less fuel efficient.
