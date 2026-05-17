@@ -411,33 +411,48 @@ To produce a more intuitive estimate, I construct two counterfactual versions of
 Importantly, all other firm characteristics, such as age and region, are held fixed at their observed values. This isolates the portion of predicted patent activity associated specifically with customer status.
 
 ```{python}
+# Create two counterfactual versions of the design matrix
 X0_df = X_df.copy()
 X1_df = X_df.copy()
 
-X0_df["iscustomer"] = 0
-X1_df["iscustomer"] = 1
+# Scenario 1: every firm is treated as a non-customer
+X0_df["iscustomer"] = 0.0
 
-predicted_y0 = np.exp(X0_df.to_numpy() @ beta_hat)
-predicted_y1 = np.exp(X1_df.to_numpy() @ beta_hat)
+# Scenario 2: every firm is treated as a Blueprinty customer
+X1_df["iscustomer"] = 1.0
 
+# Use the fitted Poisson GLM to predict expected patent counts
+predicted_y0 = glm_result.predict(X0_df)
+predicted_y1 = glm_result.predict(X1_df)
+
+# Average difference in predicted patent counts
 average_effect = np.mean(predicted_y1 - predicted_y0)
 
 effect_table = pd.DataFrame({
-    "Quantity": ["Average effect of Blueprinty customer status"],
-    "Estimate": [average_effect]
+    "Average predicted patents if all were non-customers": [predicted_y0.mean()],
+    "Average predicted patents if all were customers": [predicted_y1.mean()],
+    "Average customer effect": [average_effect]
 })
 
-effect_table.style.format({"Estimate": "{:.10f}"})
+effect_table.style.format({
+    "Average predicted patents if all were non-customers": "{:.4f}",
+    "Average predicted patents if all were customers": "{:.4f}",
+    "Average customer effect": "{:.4f}"
+})
 ```
 
-The estimated average treatment effect is essentially zero. In practical terms, this means that after controlling for differences in firm age and regional location, the model predicts almost no difference in patent output between Blueprinty customers and non customers.
+The customer coefficient tells us that Blueprinty customer status is associated with higher expected patent counts, but the coefficient itself is not directly expressed in “additional patents.” Because the Poisson model is nonlinear, it is more useful to translate the model into predicted patent counts.
 
-This result is interesting because the earlier coefficient interpretation suggested that customer status was positively associated with patent activity. However, when the model is used to generate firm level counterfactual predictions and average them across the entire dataset, the overall effect becomes negligible.
+To do this, I create two counterfactual versions of the data. In the first version, every firm is treated as a non-customer. In the second version, every firm is treated as a Blueprinty customer. All other firm characteristics, including age and region, are held fixed at their observed values.
 
-One possible explanation is that the customer effect is relatively small compared to the overall variation in patent outcomes across firms. Another possibility is that the nonlinear structure of the Poisson model causes the average marginal effect to differ substantially from the raw coefficient interpretation.
+The model predicts that if all firms were non-customers, they would receive an average of about 3.44 patents. If all firms were Blueprinty customers, they would receive an average of about 4.23 patents. The difference between these two predictions is about 0.79 additional patents per firm.
 
-Substantively, the findings suggest that once observable firm characteristics are taken into account, Blueprinty’s software does not appear to meaningfully change predicted patent counts on average in this sample.
+This means that, after controlling for firm age and region, Blueprinty customer status is associated with roughly 0.79 more patents per firm over the five-year period.
 
-At the same time, this remains an observational analysis rather than a randomized experiment. Even though the regression controls for observable differences such as age and region, unobserved characteristics, such as firm-level innovation culture, R&D investment, or management quality, could still influence both software adoption and patent output.
+This result supports Blueprinty’s marketing claim, but it should still be interpreted carefully. The analysis is observational, not experimental. While the model controls for observable differences such as age and region, it cannot rule out unobserved differences between customers and non-customers. For example, firms that choose to use Blueprinty may already be more innovative, better managed, or more active in patent applications.
 
-As a result, the analysis does not establish a strong causal effect of Blueprinty’s software on patent success. Instead, it suggests that the relationship between Blueprinty customer status and patent outcomes is weaker than the raw comparisons initially implied.
+Therefore, the results provide evidence consistent with a positive relationship between Blueprinty’s software and patent success, but they do not prove that the software alone causes firms to receive more patents.
+
+## Conclusion
+
+This analysis used Maximum Likelihood Estimation and Poisson regression to study whether Blueprinty’s software is associated with higher patent success among engineering firms. After controlling for firm age and regional differences, the results suggest that Blueprinty customers are expected to receive more patents on average than similar non-customers. While these findings are consistent with Blueprinty’s marketing claim, the study is based on observational data rather than a randomized experiment, so the results should be interpreted as evidence of association rather than definitive proof of causation.
